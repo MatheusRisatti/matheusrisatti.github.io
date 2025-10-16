@@ -239,12 +239,46 @@ section:hover{
 }
 
 .item-date{
-    background: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
     color: white;
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    transition: all 0.4s ease-in;
+}
+
+.item-date::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background: var(--primary-color);
+    transition: opacity 0.4s ease-in;
+}
+
+.item-date::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+    background: linear-gradient(135deg, var(--primary-color) , #ff6b31 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease-in;
+}
+
+.item-date:hover::after{
+    opacity: 1;
 }
 
 .item-description{
